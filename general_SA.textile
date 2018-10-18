@@ -1,0 +1,52 @@
+h2. Generic terms and algorithm of simulated annealing method
+
+Among the optimization algorithms, simulated annealing (SA) possesses outstanding aspects such as finding global extermum of highly complicated functions without getting caught at local extremums. For small and less complicated systems other algorithms such as _hill climbing_ or _random walk_ might be sufficient. However, they always have their own risks: The former can stuck in a local minimum and the latter may never converge. Nonetheless, when a large and highly complicated and large problems are in question, SA algorithms shows great successes and provide good estimations (not the very best, of course). The history of SA potimization technique goes back to 1980s [1&#45;3]. 
+
+
+
+The algorithm of SA to find, for example, the global mimimum of a function <span class="math">E(x)</math> is as follows (<span class="math">E(x)</math> can be the energy of a system as a function a variable <span class="math">x</math>). 
+
+It considers an interval for the variable <span class="math">x\in [x_{min}:x_{max}]</math>. Next, starts with two intial guesses for the variable <span class="math">x=x_{r}^{1,2}</math> that are chosen at random within the given interval for a fake 'temperature' <span class="math">T\in [T_{max}:T_{min}]</math> and calculates <span class="math">E(x_{r}^{1,2})</math>. Finds their difference <span class="math">\Delta E = E(x_r^2)-E(x_r^1)</math>. Since it is going to find minimum, if <span class="math">\Delta E&lt;0</math>, then keeps solution <span class="math">x_r^1</math>. Otherwise, if <span class="math">\exp({{\Delta E}/T})&gt; X_r</math> then keeps <span class="math">x_r^2</math>. In the Next step, it generates a new value for <span class="math">E(x_r^N)</math> and compares with the previous solution <span class="math">E(x_r^P)</math>, namely constructs <span class="math">\Delta E = E(x_r^N)-E(x_r^P)</math>. This loop should be repeated for several times per each temperature value <span class="math">T</math> and continues until <span class="math">T = T_{min}</math>.
+
+<span class="math">\color{blue} {\text{FOR}}\;\Big\{\;T=T_{max}:T_{min}\;\Big\}\;\; \\
+x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
+x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
+\Delta E = E^N - E^P\\
+\color{red}{\text{IF}}\;\Big\{\;\Delta E &lt;0\;\Big\} \;\;\;(\text{hill climbing})\\
+x_r^P =x_r^N\\
+\color{red}{\text{ELSEIF}}\;\Big\{\;\exp({{\Delta E}/T})\;&gt; \text{random}()\;\Big\} \;\;\;(\text{random walk})\\
+x_r^P =x_r^N\\
+\color{red}{\text{ENDIF}}\\
+\color{blue}{\text{ENDFOR}}</math>
+Below are two movies that show how SA algorithm tries to find a good solution.
+
+
+
+* SA tries to find the global maximum without stopping at a local maximum. By decreasing <span class="math">T</math>, SA approaches the global maximum.
+
+
+
+!/Users/phymalidoust/CEMC_tutorial/figures/Hill_Climbing_with_Simulated_Annealing.gif!
+
+
+
+
+<ul>
+<li><p>SA tries to solve the famous travelling salesman problem among 125 points, i.e., finding a path that has the minimum length and connects all 125 points. </p>
+<p></p></li>
+</ul>
+
+!/Users/phymalidoust/CEMC_tutorial/figures/Travelling_salesman_problem_solved_with_simulated_annealing.gif!
+
+
+
+
+
+
+<hr />
+
+[1] S. Kirkpatrick, C. D. Gelatt Jr., M. P. Vecchi, _Optimization by Simulated Annealing_, "Science 220, 671 (1983)":http://science.sciencemag.org/content/220/4598/671/tab-article-info.
+
+[2] S. Kirkpatrick, _Optimization by simulated annealing: Quantitative studies_, "Journal of Statistical Physics 34, 975 (1984)":https://link.springer.com/article/10.1007/BF01009452.
+
+[3] P. J. M. van Laarhoven and E. H. L. Aarts, _Simulated Annealing: Theory and Applications_, "Springer, 1988":https://www.springer.com/gp/book/9789027725134.
