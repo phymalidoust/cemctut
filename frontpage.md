@@ -9,5 +9,14 @@
 
 
 * Generic terms and idea of simulated annealing method
-* Way of how it is implemented in the code called CEMC
+* How it is implemented in the code called CEMC
 * Map of the related scripts 
+
+
+
+-------------------------------------------------------------------------------------
+
+
+
+## Generic terms and idea of simulated annealing method
+
