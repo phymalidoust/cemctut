@@ -23,6 +23,23 @@ $$
 \end{split}
 &\end{align}
 $$
+\begin{align}
+\begin{split}
+&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
+&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
+&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
+&\Delta E = E^N - E^P\\
+&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ENDIF}}\\
+&\color{blue}{\text{ENDFOR}}
+\end{split}
+&\end{align}
+
+
+
 Below are two movies that show how SA algorithm tries to find a good solution.
 
 
