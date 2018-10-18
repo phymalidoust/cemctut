@@ -6,7 +6,7 @@ Among the optimization algorithms, simulated annealing (SA) possesses outstandin
 
 The algorithm of SA to find, for example, the global mimimum of a function $E(x)$ is as follows ($E(x)$ can be the energy of a system as a function a variable $x$). 
 
-It considers an interval for the variable $x\in [x_{min}:x_{max}]$. Next, starts with two intial guesses for the variable $x=x_{r}^{1,2}$ that are chosen at random within the given interval for a fake 'temperature' $T\in [T_{max}:T_{min}]$ and calculates $E(x_{r}^{1,2})$. Finds their difference $\Delta E = E(x_r^2)-E(x_r^1)$. Since it is going to find minimum, if $\Delta E<0$, then keeps solution $x_r^1$. Otherwise, if $\exp({{\Delta E}/T})> X_r$ then keeps $x_r^2$. In the Next step, it generates a new value for $E(x_r^N)$ and compares with the previous solution $E(x_r^P)$, namely constructs  $\Delta E = E(x_r^N)-E(x_r^P)$. This loop should be repeated for several times per each temperature value $T$ and continues until $T = T_{min}$.
+It considers an interval for the variable $x\in [x_{min}:x_{max}]$. Next, starts with two intial guesses for the variable $x=x_{r}^{1,2}$ that are chosen at random within the given interval for a fake 'temperature' $T\in [T_{max}:T_{min}]$ and calculates $E(x_{r}^{1,2})$. Finds their difference $\Delta E = E(x_r^2)-E(x_r^1)$. Since it is going to find minimum, if $\Delta E<0$, then keeps solution $x_r^1$. Otherwise, if $\exp({{\Delta E}/T})> X_r$ then keeps $x_r^2$. In the Next step, it generates a new value for $E(x_r^N)$ and compares with the previous solution $E(x_r^P)$, namely constructs  $\Delta E = E(x_r^N)-E(x_r^P)$. This loop should be repeated for several times per each temperature value $T$ and continues until $T = T_{min}$. 
 $$
 \begin{align}
 \begin{split}
@@ -23,7 +23,7 @@ $$
 \end{split}
 &\end{align}
 $$
-\begin{align}
+\begin{eqnarray}
 \begin{split}
 &\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
 &x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
@@ -36,6 +36,49 @@ $$
 &\color{red}{\text{ENDIF}}\\
 &\color{blue}{\text{ENDFOR}}
 \end{split}
+&\end{eqnarray}
+
+\begin{eqnarray}
+&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
+&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
+&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
+&\Delta E = E^N - E^P\\
+&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ENDIF}}\\
+&\color{blue}{\text{ENDFOR}}
+&\end{eqnarray}
+
+
+
+\begin{equation}
+&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
+&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
+&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
+&\Delta E = E^N - E^P\\
+&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ENDIF}}\\
+&\color{blue}{\text{ENDFOR}}
+&\end{equation}
+
+
+
+\begin{align}
+&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
+&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
+&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
+&\Delta E = E^N - E^P\\
+&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
+&x_r^P =x_r^N\\
+&\color{red}{\text{ENDIF}}\\
+&\color{blue}{\text{ENDFOR}}
 &\end{align}
 
 
@@ -50,7 +93,13 @@ x_{21} & x_{22} & \ldots \\
 $$
 ```
 
-
+$$
+M = \left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ldots \\
+\end{array} \right)
+$$
 
 Below are two movies that show how SA algorithm tries to find a good solution.
 
