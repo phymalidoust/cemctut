@@ -23,65 +23,14 @@ $$
 \end{split}
 &\end{align}
 $$
-\begin{eqnarray}
-\begin{split}
-&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
-&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
-&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
-&\Delta E = E^N - E^P\\
-&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ENDIF}}\\
-&\color{blue}{\text{ENDFOR}}
-\end{split}
-&\end{eqnarray}
 
-\begin{eqnarray}
-&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
-&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
-&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
-&\Delta E = E^N - E^P\\
-&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ENDIF}}\\
-&\color{blue}{\text{ENDFOR}}
-&\end{eqnarray}
-
-
-
-\begin{equation}
-&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
-&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
-&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
-&\Delta E = E^N - E^P\\
-&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ENDIF}}\\
-&\color{blue}{\text{ENDFOR}}
-&\end{equation}
-
-
-
-\begin{align}
-&\color{blue} {\text{FOR}}\;\{\;T=T_{max}:T_{min}\;\}\;\; \\
-&x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
-&x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
-&\Delta E = E^N - E^P\\
-&\color{red}{\text{IF}}\;\{\;\Delta E <0\;\} \;\;\;(\text{hill climbing})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ELSEIF}}\;\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\} \;\;\;&(\text{random walk})\\
-&x_r^P =x_r^N\\
-&\color{red}{\text{ENDIF}}\\
-&\color{blue}{\text{ENDFOR}}
-&\end{align}
-
-
+$$
+\begin{matrix}
+1 & x & x^2 \\
+1 & y & y^2 \\
+1 & z & z^2 \\
+\end{matrix}
+$$
 
 ```
 $$
@@ -94,7 +43,7 @@ $$
 ```
 
 $$
-    \begin{matrix}
+\begin{matrix}
     1 & x & x^2 \\
     1 & y & y^2 \\
     1 & z & z^2 \\
