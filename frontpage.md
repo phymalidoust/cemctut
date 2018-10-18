@@ -8,7 +8,7 @@
 
 
 
-* [Generic terms and idea of simulated annealing method](cemctut/general_SA.md)
+* [Generic terms and idea of simulated annealing method](/general_SA.md)
 * How it is implemented in the code called CEMC
 * Map of the related scripts 
 
