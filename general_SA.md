@@ -40,6 +40,18 @@ $$
 
 
 
+```
+$$
+M = \left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ldots \\
+\end{array} \right)
+$$
+```
+
+
+
 Below are two movies that show how SA algorithm tries to find a good solution.
 
 
