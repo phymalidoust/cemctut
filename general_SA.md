@@ -8,13 +8,13 @@ The algorithm of SA to find, for example, the global mimimum of a function $E(x)
 
 It considers an interval for the variable $x\in [x_{min}:x_{max}]$. Next, starts with two intial guesses for the variable $x=x_{r}^{1,2}$ that are chosen at random within the given interval for a fake 'temperature' $T\in [T_{max}:T_{min}]$ and calculates $E(x_{r}^{1,2})$. Finds their difference $\Delta E = E(x_r^2)-E(x_r^1)$. Since it is going to find minimum, if $\Delta E<0$, then keeps solution $x_r^1$. Otherwise, if $\exp({{\Delta E}/T})> X_r$ then keeps $x_r^2$. In the Next step, it generates a new value for $E(x_r^N)$ and compares with the previous solution $E(x_r^P)$, namely constructs  $\Delta E = E(x_r^N)-E(x_r^P)$. This loop should be repeated for several times per each temperature value $T$ and continues until $T = T_{min}$.
 $$
-\color{blue} {\text{FOR}}\;\Big\{\;T=T_{max}:T_{min}\;\Big\}\;\; \\
+\color{blue} {\text{FOR}}\;\Bigl\{\;T=T_{max}:T_{min}\;\Bigr\}\;\; \\
 x_r^P = x_r^1 = \text{random}()\,\rightarrow E^P = E(x_r^P)\\
 x_r^N = x_r^2 = \text{random}()\, \rightarrow E^N = E(x_r^N)\\
 \Delta E = E^N - E^P\\
-\color{red}{\text{IF}}\;\Big\{\;\Delta E <0\;\Big\} \;\;\;(\text{hill climbing})\\
+\color{red}{\text{IF}}\;\Bigl\{\;\Delta E <0\;\Bigr\} \;\;\;(\text{hill climbing})\\
 x_r^P =x_r^N\\
-\color{red}{\text{ELSEIF}}\;\Big\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\Big\} \;\;\;(\text{random walk})\\
+\color{red}{\text{ELSEIF}}\;\Bigl\{\;\exp({{\Delta E}/T})\;> \text{random}()\;\Bigr\} \;\;\;(\text{random walk})\\
 x_r^P =x_r^N\\
 \color{red}{\text{ENDIF}}\\
 \color{blue}{\text{ENDFOR}}
